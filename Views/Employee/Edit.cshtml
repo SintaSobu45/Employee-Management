@@ -1,0 +1,72 @@
+﻿@model EmployeeMVC.Models.Employee
+
+<h2>Edit Employee</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+    <input type="hidden" asp-for="Id" />
+
+    Name:
+    <input asp-for="Name" />
+    <br /><br />
+
+    Age:
+    <input asp-for="Age" />
+    <br /><br />
+
+    Salary:
+    <input asp-for="Salary" />
+    <br /><br />
+
+    <!-- 🔽 DEPARTMENT DROPDOWN -->
+    Department:
+    <select id="dept" asp-for="DepartmentId" onchange="setRole()">
+        <option value="1">IT</option>
+        <option value="2">HR</option>
+    </select>
+
+    <br /><br />
+
+    <!-- 🔽 DESIGNATION DROPDOWN -->
+    Designation:
+    <select id="role" asp-for="Designation"></select>
+
+    <br /><br />
+
+    Current Image:
+    <br />
+    <img src="@Model.ImageUrl" width="100" height="100" />
+
+    <br /><br />
+
+    Change Image:
+    <input type="file" name="imageFile" />
+    <br /><br />
+
+    <button type="submit">Update</button>
+
+</form>
+
+<script>
+    function setRole() {
+
+        var dept = document.getElementById("dept").value;
+        var role = document.getElementById("role");
+
+        role.innerHTML = "";
+
+        if (dept == "1") {
+            role.innerHTML += "<option value='Developer'>Developer</option>";
+            role.innerHTML += "<option value='Tester'>Tester</option>";
+        }
+
+        if (dept == "2") {
+            role.innerHTML += "<option value='Recruiter'>Recruiter</option>";
+            role.innerHTML += "<option value='Manager'>Manager</option>";
+        }
+
+        role.value = "@Model.Designation";
+    }
+
+    window.onload = setRole;
+</script>

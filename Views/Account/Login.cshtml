@@ -1,0 +1,22 @@
+﻿@model EmployeeMVC.Models.User
+
+<h2>Login</h2>
+
+<form asp-action="Login" method="post">
+
+    Email:
+    <input asp-for="Email" />
+    <br /><br />
+
+    Password:
+    <input asp-for="Password" type="password" />
+    <br /><br />
+
+    <button type="submit">Login</button>
+
+</form>
+
+<br />
+
+Not registered ?
+<a href="/Account/Register">Register Here</a>

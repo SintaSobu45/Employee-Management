@@ -1,0 +1,26 @@
+﻿@model EmployeeMVC.Models.User
+
+<h2>Register (HR only)</h2>
+
+<form asp-action="Register" method="post">
+
+    Name:
+    <input asp-for="Name" />
+    <br /><br />
+
+    Email:
+    <input asp-for="Email" />
+    <br /><br />
+
+    Password:
+    <input asp-for="Password" type="password" />
+    <br /><br />
+
+    <button type="submit">Register</button>
+
+</form>
+
+<br />
+
+Already have account ?
+<a href="/Account/Login">Login</a>
